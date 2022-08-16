@@ -1,0 +1,52 @@
+{% extends 'components/base.html' %}
+{% block content %}
+
+<div class="content">
+    <div class="row">
+        <div class="col-md-4">
+            {% for item in left%}
+            <div class="cart">
+                <div class="timg" >
+                    <a href="{% url 'post_show' post_slug=item.slug %}">
+                        <img src="{{item.image.url}}" class="rnd img-fluid" style="height: 200px;">
+                    </a>
+                    
+                </div>
+                <p class="data" style="margin-top: 5%;">{{item.updated_at|date:'d F Y' }}</p>
+                
+                <p class="post-title" style="height: 90px;font-size: 18pt;">
+                    {{item.title}}
+                </p>
+                <hr>
+                <p class="text" style="text-align: center;">Yazar 
+                    <span style="color:#9c8156;font-variant-caps: all-petite-caps;">{{item.author}}</span>
+                </p>
+            </div> 
+            {% endfor %}
+        </div>
+        <div class="col-md-4">
+            {% for item in right%}
+            <div class="cart">
+                <div class="timg" >
+                    <a href="">
+                        <img src="{{item.image.url}}" class="rnd img-fluid" style="height: 200px;">
+                    </a>
+                    
+                </div>
+                <p class="data" style="margin-top: 5%;">{{item.updated_at|date:'d F Y'}}</p>
+                <p class="post-title" style="height: 90px;font-size: 18pt;">
+                    {{item.title}}
+                </p>
+                <hr>
+                <p class="text" style="text-align: center;">Yazar 
+                    <span style="color:#9c8156;font-variant-caps: all-petite-caps;">{{item.author}}</span></p>
+            </div> 
+            {% endfor %}
+        </div>
+        {% include 'components/sidebar.html' %}
+        
+    </div>
+    
+</div>
+
+{% endblock %}

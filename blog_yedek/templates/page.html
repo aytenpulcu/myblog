@@ -1,0 +1,43 @@
+{% extends 'components/base.html' %}
+{% block content %}
+{% if page.sidebar%}
+<div class="content">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="cart">
+                <div class="tbox">
+                    <img src="{{page.cover_image.url}}" class="rnd img-fluid">
+            
+                    <span class="d-flex flex-column mx-5">
+                        <p class="post-title">{{page.title}}</p>
+                        <p class="text">
+                            {{page.content}}
+                        </p>
+                    </span>
+                    
+                </div>                                
+            </div>
+        </div>
+        {% include 'components/sidebar.html' %}
+    </div>
+</div>
+{% else %}
+
+<div class="cart">
+    <div class="tbox">
+        <img src="{{page.cover_image.url}}" class="rnd img-fluid">
+
+        <span class="d-flex flex-column mx-5">
+            <p class="post-title">{{page.title}}</p>
+            <p class="text">
+                {{page.content}}
+            </p>
+        </span>
+        
+    </div>                                
+</div>
+
+
+{% endif%}
+
+{% endblock %}

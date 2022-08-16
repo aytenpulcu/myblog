@@ -1,0 +1,45 @@
+{% extends 'components/base.html' %}
+{% block content %}
+
+<div class="content">
+    <div class="row">
+        <div class="col-md-8" >
+            <div class="cart d-flex flex-column align-items-center">
+                <form method="POST">
+                    {% csrf_token %}
+                    <span class="w-50">
+                        <label class="form-label" for="id_username">Kullanıcı Adı:</label>
+                        <input class="form-control" type="text" name="username" maxlength="150" autocapitalize="none" autocomplete="username" autofocus required id="id_username">
+                        
+                        <label class="form-label" for="id_password1">Şifre:</label>
+                        <input class="form-control" type="password" name="password1" autocomplete="new-password" required id="id_password1">
+                        {% if 'password1' == 'username' %}
+                        <span class="helptext" aria-disabled="">
+                            <li>Your password can’t be too similar to your other personal information.</li>
+                            <li>Your password must contain at least 8 characters.</li>
+                            <li>Your password can’t be a commonly used password.</li>
+                            <li>Your password can’t be entirely numeric.</li>
+                           
+                        </ul>
+                        </span>
+                        
+                        <ul class="errorlist"><li>The password is too similar to the username.</li>
+                            <li>This password is too short. It must contain at least 8 characters.</li></ul>
+                            {% endif %}
+                        <label for="id_password2">Şifre Tekrar:</label>
+                        <input class="form-control" type="password" name="password2" autocomplete="new-password" required id="id_password2"><br>
+                        
+                        <button class="btn-submit" type="submit">KAYIT</button>
+                    </span>
+                    
+                </form> 
+            </div>
+            
+        </div>
+        
+        {% include 'components/sidebar.html' %}
+    </div>
+
+</div>
+
+{% endblock%}

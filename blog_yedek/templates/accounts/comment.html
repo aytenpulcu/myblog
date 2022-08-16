@@ -1,0 +1,59 @@
+{% extends 'components/base.html' %}
+{% block content %}
+
+<div class="content">
+    <div class="row">
+        <div class="col-md-8" >
+            <div class="cart d-flex flex-column align-items-center" style="text-align: start;">
+                <br>
+                <p class="post-title">Yorumlarım</p>
+                <br>
+                {% if comments%}
+                {% for item in comments %}
+                <div class="cart"  style="width: 70%; padding-top: 5px; border:solid ;border-width: 2px; border-color: #f3f3f3;">
+                    <p class="last-title">{{item.blog_name}}</p>
+                    <p class="data">{{item.createt_at|date:'d F Y'}}</p>
+                    <p class="text">{{item.content}}</p>
+                    <form action="{% url 'comment_delete' pk=item.pk %}">
+                        <button class="btn-submit" >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+                {% endfor %}
+                {% else %}
+                <div class="cart d-flex flex-column align-items-center">
+                    <p class="text">Burada bir şeyler görebilmek için keşfet ve yorum yap.</p>
+                    {% for item in posts %}
+                    <div class="box" style="width: 50%;margin: 5px;">
+                        <div class="timg" >
+                            <a href="{% url 'post_show' post_slug=item.slug %}">
+                                <img src="{{item.image.url}}" class="rnd img-fluid" style="height: 200px;border: 2px solid #f3f3f3;">
+                            </a>
+                            
+                        </div>
+                        <p class="data">{{item.updated_at|date:'d F Y'}}</p>
+                        <p class="post-title" style="height: 90px;font-size: 18pt;">
+                            {{item.title}}
+                        </p>
+                        <hr style="border: white solid 1px;">
+                        <p class="text" style="text-align: center;">{{item.author}}</p>
+                    </div>  
+                    {% endfor %}
+                   
+                    
+
+                </div>
+                {% endif %}
+            </div>
+            
+        </div>
+        
+        {% include 'components/sidebar.html' %}
+    </div>
+
+</div>
+{% endblock%}

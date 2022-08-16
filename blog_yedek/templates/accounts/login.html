@@ -1,0 +1,36 @@
+{% extends 'components/base.html' %}
+{% block content %}
+
+<div class="content">
+    <div class="row">
+        <div class="col-md-8" >
+            <div class="cart d-flex flex-column align-items-center" style="text-align: start;">
+                {% if user.is_authenticated %}
+                <p class="tag">Merhaba, {{ user.username }}.</p> 
+                   
+                  <p class="text"> Yeni gönderileri keşfet ve yorum yap</p>  
+                {% else %}
+                <form method="POST" >
+                    {% csrf_token %}
+                    <span class="w-50 ">
+                        <label class="form-label" for="id_username">Kullanıcı Adı:</label>
+                        <input class="form-control" type="text" name="username" maxlength="150" autocapitalize="none" autocomplete="username" autofocus required id="id_username">
+                        <br>
+                        
+                        <label class="form-label" for="id_password1">Şifre:</label>
+                        <input class="form-control" type="password" name="password" autocomplete="new-password" required id="id_password"><br>
+                        <button class="btn-submit" type="submit">GİRİŞ</button>
+                    </span>
+                    
+                </form> 
+                {% endif %}
+            </div>
+            
+        </div>
+        
+        {% include 'components/sidebar.html' %}
+    </div>
+
+</div>
+
+{% endblock%}

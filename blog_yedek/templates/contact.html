@@ -1,0 +1,50 @@
+{% extends 'components/base.html' %}
+{% block content %}
+
+<div class="content">
+    <div class="row">
+        <div class="col-md-8" >
+            <div class="cart" >
+                <img src="/media/img 7-5.png" class="rnd img-fluid">
+                <span class="d-flex flex-column mx-5" style="margin-top: 20px;">
+                    <p class="tag" style="font-size: 21pt;text-align: left;">İLETİŞİM </p>
+                    <p class="text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+
+                    </p>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <span class="d-flex flex-column w-75">
+                            <label class="form-label">Adınız</label>
+                            <input type="text" name="user_name" id="id_user_name" class="form-control" required>
+                            
+                            <label class="form-label">Email </label>
+                            <input type="email" name="mail" id="id_mail" class="form-control" required>
+
+                            <label class="form-label" for="id_subject">Konu</label>
+                            <input type="text" name="subject" class="form-control" maxlength="255" required id="id_subject">
+
+                        </span>
+                        <span class="d-flex flex-column">
+                            <label class="form-label">Mesajınız</label>
+                            <textarea type="text" name="content" class="form-control" id="id_content" required></textarea>
+                            <br>
+                            <button class="btn-submit" type="submit" >
+                                Gönder
+                            </button>
+                        </span>
+                        
+                        
+                    </form>
+                    
+                </span>
+            </div>                           
+                
+        </div>
+        
+        {% include 'components/sidebar.html' %}
+    </div>
+</div>
+
+{% endblock %}

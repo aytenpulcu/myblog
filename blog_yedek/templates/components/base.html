@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include 'components/head.html' %} {# meta ve bootstrap css, main.css ve font adresleri #}
+    
+    <title>Blog</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-1" ></div>
+            <div class="col-sm-10">
+                {% include 'components/header.html' %} {# logo, nav ve search bilesenleri #}
+                {% include 'components/message.html' %} {# alert bileseni sadece views'ten mesaj gelirse görünür #}
+
+                {% block content %}
+                {% endblock %}
+    
+                {% include 'components/footer.html' %} 
+                {% include 'components/script.html' %} 
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+    </div>
+    
+</body>
+</html>
