@@ -1,0 +1,44 @@
+
++ yorum silme
+- search işlemi
+- password hashing
+- password unutma ve degistirme
+- user image
+
+app :   page/?                      post
+
+models: Page, Message            (Category, Blog_post^category, Comment^post,user) 
+views: (index,about,contact,     (category_show, post_show)
+        sign_in,log_in, see_all,  
+        logout,see_cmnt)
+
+
+        
+templates: index, about, contact, categories* , posts*
+
+forms? template -(request_POST)-> views ->db /comment-message
+
+statics, media, urls, context processor, 
+middleware-contextpro
+
+*********************
+python -m pip install --upgrade pip
+# Sanal ortam oluştur
+python -m venv venv
+
+# Sanal ortamı aktif et (Windows için)
+venv\Scripts\activate
+# (Linux/Mac için)
+source venv/bin/activate
+
+pip install -r requirements.txt
+pip install --upgrade pip setuptools wheel
+//Pillow için gerekli derleme araçlarının eksik olabilir Windows için: Eğer Visual C++ Build Tools yüklenir
+# Veritabanını oluştur
+python manage.py migrate
+
+# Sunucuyu başlat
+python manage.py runserver
+*********
+yeni django projesi>> django-admin startproject proje_adı
+py manage.py runserver
