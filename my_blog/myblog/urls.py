@@ -11,6 +11,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('<slug:page_slug>', page_show, name='page_show'),
    
+    path('about/', about, name='about'),
     path('iletisim/', contact_us, name='contact_us'),
     path('gonderiler/', see_all, name='see_all'),
 

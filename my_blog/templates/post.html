@@ -4,10 +4,10 @@
 <div class="content">
     <div class="row">
         <div class="col">
-            <div class="cart mt-5">
+            <div class="cart">
                 <div class="timg">
-                    <img src="{{post.image.url}}" class="f img-fluid" 
-                    style="width: 100%;height: auto;border-top-left-radius: 8px;border-top-right-radius: 8px;" alt="Responsive image">
+                    <img src="{{post.image.url}}" class=" f img-fluid cover" 
+                    style="" alt="Responsive image">
                 </div>
                 
                 
@@ -30,8 +30,9 @@
                 
             </div> 
         </div>
-                            
+        {% include 'components/sidebar.html' %}                    
     </div>
+    
 </div>
 
 {% endblock %}

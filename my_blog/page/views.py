@@ -14,7 +14,7 @@ def index(request):
 
 def about(request):
     context=dict()
-    return render(request,"contact.html",context)
+    return render(request,"about.html",context)
 
 def page_show(request, page_slug):
     context = dict()

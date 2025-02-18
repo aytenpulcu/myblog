@@ -37,18 +37,21 @@
                 <div class="tabcontent" id="home">
                     {% for item in posts %} {# context processor ile data.py ürinden alınan ilk 5 post #}
                     <div class="tbox">
-                        <div class="timg">
-                            <a href="{% url 'post_show' post_slug=item.slug %}">
-                                <img src="{{item.image.url}}" class="rnd img-fluid w-100">
-                            </a>
+                        <span class="d-flex flex-column mx-5">  
                             
-                        </div>
-                        <span class="d-flex flex-column mt-5 mx-5">
+                        
                             <p class="data">{{item.updated_at|date:'d F Y'}}</p>
                             <p class="post-title">{{item.title}}</p>
-                            <p class="text">
-                                {{item.content}}
+                            <div class="d-flex flex-row">
+                                <a href="{% url 'post_show' post_slug=item.slug %}">
+                                    <img src="{{item.image.url}}" class=" img-fluid ">
+                                </a>
+                            <p class="text margin-left-5">
+                                
+                                {{ item.content|slice:":100" }} ...
                             </p>
+                            </div>
+                            
                         </span>
                         <hr style="margin: 0px;">
                         <span class="d-flex flex-row mx-3 justify-content-between">
